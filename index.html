@@ -345,6 +345,18 @@
     font-size: 0.95rem;
   }
 
+  .promo-banner{
+    display:block;
+    border-radius: 2px;
+    overflow:hidden;
+    margin: 30px 0 10px;
+    text-decoration:none;
+    border: 1px solid var(--line);
+    transition: transform var(--dur) ease;
+  }
+  .promo-banner:hover{ transform: translateY(-2px); }
+  .promo-bg{ display:block; width:100%; height:auto; }
+
   .site-footer{
     max-width: 660px;
     margin: 28px auto 0;
@@ -430,8 +442,10 @@
 
       <div class="closing">
         <p>Путешествие героини не проходят в одиночку в теории – оно проживается в теле, в отношениях, в компании других женщин, которые узнают в себе то же самое.</p>
-        <p class="dim">Если этот текст откликнулся, приглашаю продолжить вместе, в группе «Что мы делаем в тенях» – шесть встреч, где мы вместе разбираем стыд и игру, гнев и внутреннюю ведьму, тело, одиночество и целостность на собственном опыте.</p>
-        <a class="tg" href="https://t.me/IamIva2020" target="_blank" rel="noopener">Написать в Telegram</a>
+        <p class="dim">Если этот текст откликнулся, вот куда можно пойти дальше:</p>
+        <a class="promo-banner" href="https://jul-ivanchikova.github.io/autumn-group/" target="_blank" rel="noopener">
+          <img class="promo-bg" src="hello-banner.jpg" alt="Хэллоу, май дарлинг! Женская группа, новый сезон, 20 сентября – 27 декабря 2026. Узнать больше">
+        </a>
       </div>
 
       <div class="btnrow" style="justify-content:center;">
@@ -894,7 +908,10 @@ const App = (function(){
       '<hr class="rule"><h2>Актуальные этапы путешествия на базе теста</h2>' + topHTML +
       '<hr class="rule"><h2>Все десять этапов</h2><div class="bars">' + barsHTML + '</div>' +
       accordionHTML +
-      '<div class="closing"><p class="dim">Путешествие героини по книге Морин Мердок · группа «Что мы делаем в тенях» · t.me/IamIva2020</p></div>' +
+      '<div class="closing"><p class="dim">Если этот текст откликнулся, вот куда можно пойти дальше:</p>' +
+      '<a class="promo-banner" href="https://jul-ivanchikova.github.io/autumn-group/" target="_blank" rel="noopener">' +
+      '<img class="promo-bg" src="https://jul-ivanchikova.github.io/geroini-test/hello-banner.jpg" alt="Хэллоу, май дарлинг! Женская группа, новый сезон, 20 сентября – 27 декабря 2026. Узнать больше">' +
+      '</a></div>' +
       '<div class="signature">Юлия Иванчикова · t.me/IamIva2020</div>' +
       '<footer class="site-footer"><div class="links">' +
       '<a href="https://t.me/cottage_cheese_puree" target="_blank" rel="noopener">Telegram</a>' +
