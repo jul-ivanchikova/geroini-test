@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Путешествие героини – самодиагностика</title>
+<meta name="description" content="Самодиагностика по книге Морин Мердок «Путешествие героини»: 50 утверждений покажут, какие из 10 этапов пути звучат в вас громче остальных прямо сейчас.">
+
+<!-- Open Graph (замените https://jul-ivanchikova.github.io/geroini-test/ на реальный адрес страницы после публикации на GitHub Pages) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Путешествие героини">
+<meta property="og:title" content="Путешествие героини — самодиагностика">
+<meta property="og:description" content="По книге Морин Мердок. 50 утверждений покажут, какие из 10 этапов пути звучат в вас громче остальных прямо сейчас.">
+<meta property="og:url" content="https://jul-ivanchikova.github.io/geroini-test/">
+<meta property="og:image" content="https://jul-ivanchikova.github.io/geroini-test/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Путешествие героини — самодиагностика">
+<meta name="twitter:description" content="По книге Морин Мердок. 50 утверждений покажут, какие из 10 этапов пути звучат в вас громче остальных прямо сейчас.">
+<meta name="twitter:image" content="https://jul-ivanchikova.github.io/geroini-test/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brown-deep: #180800;
+    --brown: #1C0A00;
+    --brown-panel: #2A1608;
+    --brown-panel-2: #33190c;
+    --cream: #F5EDD6;
+    --cream-dim: #d8cba3;
+    --gold: #C9A84C;
+    --gold-soft: #a9895f;
+    --garnet: #9c4a3f;
+    --garnet-soft: #6e352d;
+    --line: rgba(201,168,76,0.28);
+    --serif-display: 'Cormorant Garamond', 'Georgia', serif;
+    --sans-body: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    --dur: 420ms;
+  }
+  @media (prefers-reduced-motion: reduce){
+    :root{ --dur: 0ms; }
+    *{ scroll-behavior: auto !important; }
+  }
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background: radial-gradient(ellipse at 50% -10%, #241005 0%, var(--brown) 55%, var(--brown-deep) 100%);
+    color: var(--cream);
+    font-family: var(--sans-body);
+    font-size: 17px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    padding: 32px 16px 80px;
+  }
+  .app{
+    width: 100%;
+    max-width: 660px;
+  }
+
+  /* ---------- shared type ---------- */
+  h1,h2,h3{
+    font-family: var(--serif-display);
+    font-weight: 600;
+    color: var(--gold);
+    margin: 0 0 14px;
+    letter-spacing: 0.01em;
+  }
+  h1{ font-size: 2.5rem; line-height: 1.12; }
+  h1.hero-title{
+    font-size: clamp(1.5rem, 7.2vw, 2.5rem);
+    white-space: nowrap;
+  }
+  h2{ font-size: 1.5rem; }
+  h3{ font-size: 1.15rem; }
+  p{ margin: 0 0 14px; color: var(--cream); }
+  .dim{ color: var(--cream-dim); }
+  .eyebrow{
+    font-family: var(--sans-body);
+    font-style: italic;
+    font-size: 0.86rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 10px;
+    display:block;
+  }
+  a{ color: var(--gold); }
+  .rule{
+    border:0; height:1px;
+    background: linear-gradient(to right, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+    margin: 26px 0;
+    opacity: 0.6;
+  }
+
+  /* ---------- card frame ---------- */
+  .frame{
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 40px 34px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
+    position: relative;
+  }
+  .frame::before{
+    content:"";
+    position:absolute; inset: 6px;
+    border: 1px solid rgba(201,168,76,0.14);
+    pointer-events:none;
+  }
+  @media (max-width: 560px){
+    .frame{ padding: 28px 20px; }
+    .opts{ gap: 20px; }
+    .opt{ padding: 10px 4px; margin: -10px -4px; }
+    .opt input{ width: 24px; height: 24px; }
+  }
+
+  /* ---------- buttons ---------- */
+  .btnrow{ display:flex; gap:14px; margin-top: 30px; align-items:center; flex-wrap: wrap; }
+  button{
+    font-family: var(--sans-body);
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 1px;
+    transition: transform var(--dur) ease, background var(--dur) ease, border-color var(--dur) ease;
+  }
+  .btn-primary{
+    background: var(--gold);
+    color: var(--brown-deep);
+    border: 1px solid var(--gold);
+    padding: 12px 26px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover:not(:disabled){ transform: translateY(-1px); }
+  .btn-primary:disabled{ opacity: 0.35; cursor: not-allowed; transform:none; }
+  .btn-ghost{
+    background: transparent;
+    color: var(--cream-dim);
+    border: 1px solid var(--line);
+    padding: 11px 22px;
+  }
+  .btn-ghost:hover{ border-color: var(--gold); color: var(--cream); }
+  button:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---------- progress path (moon markers) ---------- */
+  .path{
+    display:flex;
+    justify-content:center;
+    gap: 9px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .moon{
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    border: 1.4px solid var(--gold-soft);
+    background: transparent;
+    transition: background var(--dur), border-color var(--dur), transform var(--dur);
+  }
+  .moon.done{ background: var(--gold-soft); border-color: var(--gold-soft); }
+  .moon.now{ background: var(--gold); border-color: var(--gold); transform: scale(1.35); }
+  .path-label{
+    text-align:center;
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  /* ---------- views ---------- */
+  .view{ display:none; }
+  .view.active{
+    display:block;
+    animation: rise var(--dur) ease;
+  }
+  @keyframes rise{
+    from{ opacity:0; transform: translateY(10px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  /* ---------- questions ---------- */
+  fieldset{ border:0; margin: 0 0 26px; padding:0; }
+  legend{
+    font-family: var(--sans-body);
+    font-size: 1.02rem;
+    color: var(--cream);
+    padding:0 0 12px;
+    line-height: 1.5;
+  }
+  .scale{
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    gap: 6px;
+  }
+  .scale-hint{
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--gold-soft);
+    max-width: 92px;
+    line-height: 1.3;
+  }
+  .scale-hint.right{ text-align:right; }
+  .opts{ display:flex; gap: 14px; }
+  .opt{
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    cursor:pointer;
+  }
+  .opt input{
+    appearance:none; -webkit-appearance:none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1.6px solid var(--gold-soft);
+    background: transparent;
+    cursor:pointer;
+    transition: background var(--dur), border-color var(--dur), box-shadow var(--dur);
+  }
+  .opt input:checked{
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.18);
+  }
+  .opt input:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+  .opt span{ font-size: 0.78rem; color: var(--cream-dim); }
+  .q-block + .q-block{ border-top: 1px solid var(--line); padding-top: 22px; }
+
+  /* ---------- results ---------- */
+  .radar-wrap{
+    display:flex; justify-content:center; margin: 8px 0 26px;
+  }
+  svg#radar{ width: 100%; max-width: 440px; height:auto; }
+  .radar-poly{
+    fill: rgba(201,168,76,0.16);
+    stroke: var(--gold);
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+    animation: draw 900ms ease forwards;
+  }
+  @keyframes draw{
+    from{ opacity:0; transform: scale(0.7); transform-origin: 195px 175px; }
+    to{ opacity:1; transform: scale(1); }
+  }
+  .radar-dot{ fill: var(--gold); }
+  .radar-grid{ fill:none; stroke: rgba(201,168,76,0.18); stroke-width:1; }
+  .radar-axis{ stroke: rgba(201,168,76,0.14); stroke-width:1; }
+  .radar-num{
+    font-family: var(--sans-body);
+    font-size: 11px;
+    fill: var(--gold-soft);
+    text-anchor: middle;
+  }
+
+  .top-card{
+    border: 1px solid var(--gold);
+    background: linear-gradient(180deg, rgba(201,168,76,0.10), rgba(201,168,76,0.02));
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .top-card .num{
+    font-family: var(--serif-display);
+    color: var(--garnet);
+    font-size: 0.95rem;
+    font-weight:600;
+  }
+  .top-card h3{ margin: 4px 0 10px; }
+
+  .bars{ margin: 6px 0 8px; }
+  .bar-row{
+    display:flex; align-items:center; gap: 12px;
+    margin-bottom: 10px;
+  }
+  .bar-name{
+    width: 168px; flex-shrink:0;
+    font-size: 0.86rem; color: var(--cream-dim);
+  }
+  .bar-track{
+    flex:1; height: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .bar-fill{
+    height:100%;
+    background: linear-gradient(to right, var(--garnet-soft), var(--gold));
+    width:0%;
+    transition: width 700ms ease;
+  }
+  .bar-score{ width: 40px; text-align:right; font-size: 0.8rem; color: var(--gold-soft); flex-shrink:0; }
+
+  details{
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  details:last-of-type{ border-bottom: 1px solid var(--line); }
+  summary{
+    cursor:pointer;
+    font-family: var(--serif-display);
+    font-size: 1.15rem;
+    font-weight:600;
+    color: var(--gold);
+    list-style: none;
+    display:flex; justify-content:space-between; align-items:baseline; gap:10px;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary .chev{ font-family: var(--sans-body); color: var(--gold-soft); transition: transform var(--dur); font-size:0.9rem; }
+  details[open] summary .chev{ transform: rotate(90deg); }
+  .detail-body{ padding-top: 14px; }
+  .q-focus{
+    font-style: italic;
+    color: var(--cream);
+    border-left: 2px solid var(--gold);
+    padding-left: 14px;
+    margin-top: 12px;
+  }
+
+  .closing{
+    text-align:center;
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .closing a.tg{
+    display:inline-block;
+    margin-top: 12px;
+    padding: 12px 26px;
+    background: var(--gold);
+    color: var(--brown-deep);
+    text-decoration:none;
+    font-weight:600;
+    border-radius: 1px;
+  }
+
+  .signature{
+    text-align:center;
+    margin-top: 40px;
+    color: var(--gold-soft);
+    font-family: var(--serif-display);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  .site-footer{
+    max-width: 660px;
+    margin: 28px auto 0;
+    text-align:center;
+    padding: 18px 16px 0;
+  }
+  .site-footer .links{
+    display:flex; justify-content:center; gap: 24px; flex-wrap:wrap;
+  }
+  .site-footer a{
+    color: var(--gold-soft);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid transparent;
+    transition: color var(--dur), border-color var(--dur);
+  }
+  .site-footer a:hover{ color: var(--gold); border-color: var(--gold); }
+
+  .fallback-note{
+    font-style: italic;
+    color: var(--cream-dim);
+    border-left: 2px solid var(--gold-soft);
+    padding-left: 14px;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- INTRO -->
+  <section class="view active" id="view-intro">
+    <div class="frame">
+      <span class="eyebrow">Самодиагностика</span>
+      <h1 class="hero-title">Путешествие героини</h1>
+      <p class="dim" style="font-style:italic; margin-top:4px;">по книге Морин Мердок «Путешествие героини: женский путь к целостности»</p>
+      <hr class="rule">
+      <p>Есть путь, который проходит почти каждая женщина рано или поздно: сепарация от матери, поиск опоры в мужском мире, годы достижений, момент, когда усердие перестает окупаться, глубокое погружение внутрь себя, из которого мы возвращаемся другими.</p>
+      <p>Этот тест – карта из 10 этапов на основании книги "Путешествие Героини". Это 50 коротких утверждений покажут, какие из этапов этого пути звучат в вас громче остальных прямо сейчас.</p>
+      <p class="dim" style="font-size:0.9rem;">После теста вы сможете прочитать про каждый из 10 этапов подробнее.</p>
+      <p class="dim" style="font-size:0.9rem;">Это займет 5–7 минут.<br>Отмечайте то, что откликается в вас сегодня.</p>
+      <div class="btnrow">
+        <button class="btn-primary" onclick="App.start()">Начать</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ (populated by JS) -->
+  <section class="view" id="view-quiz">
+    <div class="path-label" id="stage-caption"></div>
+    <div class="path" id="progress-path"></div>
+    <div class="frame">
+      <span class="eyebrow" id="stage-eyebrow"></span>
+      <h2 id="stage-title"></h2>
+      <div id="stage-questions"></div>
+      <div class="btnrow">
+        <button class="btn-ghost" id="btn-back" onclick="App.back()">Назад</button>
+        <button class="btn-primary" id="btn-next" onclick="App.next()" disabled>Далее</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="view" id="view-results">
+    <div class="frame">
+      <span class="eyebrow">Результат</span>
+      <h1 style="font-size:2rem;">Ваша карта пути</h1>
+      <p class="dim">Круг ниже показывает, какие этапы могут быть для вас сейчас наиболее актуальными. Чем дальше точка от центра, тем важнее этот этап.</p>
+
+      <div class="radar-wrap">
+        <svg id="radar" viewBox="0 0 390 350"></svg>
+      </div>
+
+      <hr class="rule">
+      <h2>Актуальные этапы путешествия на базе теста</h2>
+      <div id="top-results"></div>
+
+      <hr class="rule">
+      <h2>Все десять этапов</h2>
+      <div class="bars" id="bars"></div>
+
+      <div id="accordion"></div>
+
+      <div class="closing">
+        <p>Путешествие героини не проходят в одиночку в теории – оно проживается в теле, в отношениях, в компании других женщин, которые узнают в себе то же самое.</p>
+        <p class="dim">Если этот текст откликнулся, приглашаю продолжить вместе, в группе «Что мы делаем в тенях» – шесть встреч, где мы вместе разбираем стыд и игру, гнев и внутреннюю ведьму, тело, одиночество и целостность на собственном опыте.</p>
+        <a class="tg" href="https://t.me/IamIva2020" target="_blank" rel="noopener">Написать в Telegram</a>
+      </div>
+
+      <div class="btnrow" style="justify-content:center;">
+        <button class="btn-primary" onclick="App.downloadResults()">Скачать результаты</button>
+        <button class="btn-ghost" onclick="App.restart()">Пройти заново</button>
+      </div>
+
+      <div class="signature">Юлия Иванчикова · t.me/IamIva2020</div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="links">
+      <a href="https://t.me/cottage_cheese_puree" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.instagram.com/jul_ivanchikova" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* ================= DATA ================= */
+const STAGES = [
+  {
+    title: "Отделение от женского начала",
+    statements: [
+      "Я часто ловлю себя на мысли «только не стать как моя мать».",
+      "Мне сложно принять свое тело, не сравнивая его с телом матери или других женщин.",
+      "Мне сложно злиться так, как злилась (или не злилась) моя мать.",
+      "Я до сих пор ищу, где заканчивается влияние матери и начинаюсь я сама.",
+      "Я чувствую себя виноватой, когда добиваюсь того, чего не смогла добиться моя мать."
+    ],
+    result_text: "Сейчас вас больше всего задевает тема отделения от матери и от женского начала, которое она собой воплощала. Возможно, вы до сих пор определяете себя через отрицание – «только не как она», – и это отрицание тратит вашу энергию не меньше, чем открытое сходство.",
+    deep: [
+      "Путешествие героини начинается не с обретения, а с разрыва. Чтобы отделиться от матери и от материнского архетипа, который стоит за ней, вы отвергаете все, что культура называет женским: мягкость, зависимость, эмоциональность, тело. Это не каприз и не неблагодарность, а реакция на культуру, которая веками ценила мужское выше женского, и мать, часто сама пленница этого неравенства, невольно передает дочери миф о собственной неполноценности.",
+      "Полезно различать два полюса материнского архетипа: Великую Мать, которая дает заботу и защиту, и Ужасную Мать, которая душит и сдерживает. Большинству женщин проще увидеть в реальной матери вторую фигуру, чем разглядеть в ней женщину, ограниченную временем, обстоятельствами и собственной непрожитой яростью – той самой, что в мифологии воплощает темная богиня Кали."
+    ],
+    question: "От какой части материнского образа вы отделялись сильнее всего – от ее тела, от ее гнева, от ее зависимости? И что из отвергнутого тогда, возможно, было вашим собственным качеством?"
+  },
+  {
+    title: "Отождествление с мужским началом",
+    statements: [
+      "Я стараюсь заслужить одобрение мужчины – отца, начальника, партнера – чаще, чем одобрение женщины.",
+      "Мой внутренний голос, который требует работать больше, звучит как строгий отец, а не как заботливая мать.",
+      "Мне проще подчиняться авторитету мужчины, чем женщины.",
+      "Я горжусь тем, что «мыслю как мужчина» – рационально, без лишних эмоций.",
+      "Я работаю на пределе, чтобы доказать, что не хуже мужчины (или сына, которого ждали вместо меня)."
+    ],
+    result_text: "Похоже, сейчас звучит громче тема отношений с мужским началом – с отцом, с авторитетом, с внутренним голосом, который требует соответствовать. Вопрос в том, поддерживает вас этот внутренний образ сейчас или требует невозможного.",
+    deep: [
+      "Оттолкнувшись от матери, героиня ищет опору у отца – так рождается «папина дочка». Если отец поддерживает и видит дочь, у нее формируется позитивный внутренний мужской образ, который психолог Линда Леонард называет Мужчиной с сердцем: он заботливый и сильный одновременно, не боится ни близости, ни границ. Если же отец отсутствовал или обесценивал, на его месте вырастает другой персонаж – жадный тиран, которому всегда мало, который толкает вперед быстрее, выше, сильнее, не признавая усталости.",
+      "Женщина с таким внутренним тираном выглядит успешной вовне, но отчуждена от собственных чувств – Линда Леонард называет это состояние «амазонка в броне». Броня помогает добиваться, но не дает довериться, отдохнуть, попросить о поддержке."
+    ],
+    question: "Ваш внутренний мужской образ сейчас – это скорее тиран, требующий больше, или союзник, который дает опору? Как он звучит буквально, какими словами?"
+  },
+  {
+    title: "Против великанов и драконов",
+    statements: [
+      "Я чувствую вину, когда прошу о помощи или признаюсь, что мне что-то нужно.",
+      "Я верю, что если найду подходящего партнера или начальника, жизнь наладится сама.",
+      "Я сравниваю себя с внешними стандартами и чувствую, что мне чего-то не хватает.",
+      "Мне сложно замечать собственные потребности, пока их не назовет кто-то другой.",
+      "Внутри у меня звучит голос, который ругает меня резче, чем я стала бы ругать подругу."
+    ],
+    result_text: "Сейчас, похоже, актуальны внутренние драконы – не внешние препятствия, а убеждения, которые мешают увидеть собственные потребности и права. Стоит присмотреться, какой миф работает сильнее: о зависимости, о неполноценности или о спасении через отношения.",
+    deep: [
+      "Выйдя из родительского дома в мир испытаний – карьеру, образование, отношения, – героиня встречает драконов не только внешних, вроде стеклянного потолка или неравной оплаты, но и внутренних. Миф о зависимости учит вас с детства угадывать чужие потребности раньше своих, и когда вы наконец хотите что-то для себя, это ощущается как чрезмерность или каприз. Миф о женской неполноценности заставляет сравнивать себя с внешними стандартами и находить недостачу. Миф о романтической любви обещает, что кто-то другой возьмет на себя тяжесть выбора и ответственности.",
+      "Миф об Эросе и Психее показывает другой путь: Психея проходит испытания Афродиты не для того, чтобы ее спасли, а для того, чтобы самой заслужить зрелую любовь – на равных, а не в подчинении."
+    ],
+    question: "Какой из трех мифов – зависимость, неполноценность, романтическое спасение – управляет вами до сих пор, пусть и в тонкой форме?"
+  },
+  {
+    title: "Иллюзорное благо успеха",
+    statements: [
+      "После достижения важной цели я чувствую пустоту вместо ожидаемой радости.",
+      "У меня нет ощущения «этого достаточно» – всегда есть следующая планка.",
+      "Я совмещаю работу, дом и отношения так, что не остается сил ни на что.",
+      "Мне знакомо чувство, что как бы я ни старалась, все равно недостаточно хорошо.",
+      "Я хочу, чтобы кто-то наконец позаботился обо мне так, как я забочусь о других."
+    ],
+    result_text: "Сейчас важнее всего тема иллюзорного успеха – состояния, когда цель достигнута, а облегчения не наступает. Возможно, вы слишком долго откладывали вопрос «а зачем мне это на самом деле» ради следующего пункта в списке достижений.",
+    deep: [
+      "Героиня достигает цели – степени, должности, признания – и обнаруживает, что победа не приносит ожидаемого покоя. Такое состояние Морин Мердок называет «Великая Притворщица»: ощущение, что усилий всегда недостаточно, потому что внутренний критик требует следующего достижения раньше, чем прожито предыдущее.",
+      "Часто это ответ дочери на нереализованность матери: если мать пожертвовала карьерой ради семьи или наоборот, дочь пытается получить сразу все, чтобы никогда не оказаться в материнской зависимости, и платит за это истощением. Единственный настоящий выход, который предлагает Мердок, обманчиво прост: учиться говорить себе «этого достаточно» раньше, чем подступит выгорание."
+    ],
+    question: "Вспоминаете ли вы достижение, после которого вместо радости пришло разочарование или сразу следующая цель без паузы? Для кого вы стараетесь быть идеальной сейчас?"
+  },
+  {
+    title: "Сильные женщины умеют отказывать",
+    statements: [
+      "Мне трудно сказать «нет», даже когда я точно знаю, что не хочу.",
+      "Я держу в себе несказанное «нет» прямо сейчас – кому-то или чему-то.",
+      "После отказа я чаще чувствую вину, чем облегчение.",
+      "Я чувствую усталость от системы или отношений, которым долго и верно служила.",
+      "Я замечаю бессонницу, необъяснимую усталость или потерю интереса раньше, чем понимаю, что со мной происходит."
+    ],
+    result_text: "Сейчас на первый план выходит тема отказа и границ – момент, когда усердие перестает быть вознаграждено, и это перестает быть терпимым. Возможно, вы уже слышите в себе несказанное «нет», просто пока не решились произнести его вслух.",
+    deep: [
+      "Ключевой поворот путешествия – момент, когда героиня осознает предательство не одним человеком, а целой системой, которая обещала вознаградить усердие. Это ощущение «рассинхронизации с собой» часто заявляет о себе телом раньше, чем умом: бессонницей, необъяснимой усталостью, потерей интереса к тому, что раньше приносило радость.",
+      "Мердок обращается к мифу об Ифигении, которую отец Агамемнон приносит в жертву ради попутного ветра для флота, – истории о том, чего стоит женское начало, принесенное в жертву мужским амбициям коллектива. Практический навык этого этапа она формулирует прямо: научиться говорить «нет» власти, требующей очередного подвига, даже если отказ выглядит как предательство чужих ожиданий."
+    ],
+    question: "Какое «нет» вы носите невысказанным прямо сейчас – кому оно адресовано, и что вы боитесь потерять, произнеся его?"
+  },
+  {
+    title: "Посвящение и нисхождение к богине",
+    statements: [
+      "В моей жизни был период, когда хотелось только лечь, замолчать и никуда не идти.",
+      "Я считаю такие периоды слабостью, а не частью пути.",
+      "Мне знакомо чувство, что земля уходит из-под ног и прежние опоры больше не держат.",
+      "Я боюсь собственной ярости или темных чувств больше, чем боюсь их не выразить.",
+      "В такие периоды я отдаляюсь от друзей и обязательств, хотя обычно так не поступаю."
+    ],
+    result_text: "Сейчас в фокусе – тема нисхождения: периода, который со стороны может выглядеть как остановка или спад, а изнутри является необходимым погружением. Стоит отнестись к этому не как к поломке, которую нужно срочно исправить, а как к части пути.",
+    deep: [
+      "Нисхождение – добровольная или вынужденная изоляция, депрессия, встреча с темной стороной себя, часто спровоцированная потерей роли, отношений или уверенности. Мердок настаивает: это не патология, а священный процесс, который культура слишком спешит вылечить.",
+      "Миф об Инанне, спускающейся в подземный мир к сестре Эрешкигаль, показывает: у каждых из семи врат богиня лишается очередной части своих регалий, пока не предстает обнаженной. Исцеление в мифе приходит не через попытку немедленно все исправить, а через простое сострадательное присутствие рядом с болью – так безымянные существа, посланные Энки, просто скорбят вместе с Эрешкигаль, не пытаясь ее спасти."
+    ],
+    question: "Было ли в вашей жизни время, которое выглядело со стороны как застревание, а изнутри было необходимым спуском? Что вы уже готовы были бы отпустить, если бы знали, что за этим последует возвращение?"
+  },
+  {
+    title: "Стремление воссоединиться с женским началом",
+    statements: [
+      "Я скучаю по занятиям, которые когда-то приносили чистую радость без цели – рисованию, саду, танцу.",
+      "Я слышу сигналы своего тела, только когда оно начинает болеть.",
+      "Мне сложно замедлиться и просто быть, не производя ничего полезного.",
+      "Мне нужен повод, чтобы разрешить себе чувственность и удовольствие.",
+      "Я до сих пор не оплакала то, что принесла в жертву ради достижений, хотя, возможно, стоило бы."
+    ],
+    result_text: "Сейчас звучит тема возвращения к женскому началу – к телу, к чувственности, к тому, что нельзя ускорить. Возможно, вы уже интуитивно тянетесь к чему-то медленному и телесному, даже не называя это частью большого процесса.",
+    deep: [
+      "После нисхождения возникает жажда вернуть себе тело, эмоции, интуицию, творческую спонтанность – все, что было принесено в жертву на пути достижений. Мердок связывает утрату телесности с более широким культурным расколом: святость женского тела была утрачена вместе с падением культов Богини, и вернуть ее не эстетическая, а глубоко личная задача.",
+      "Женское творчество в этой главе описывается не как линейное движение к результату, а как спираль, разворачивающаяся изнутри. Отдельная важная тема – скорбь о разлуке с женским началом: пока эта печаль не прожита и не отпущена, она держит вас привязанными к прошлому образу себя."
+    ],
+    question: "В какой форме вы уже нащупываете возвращение к себе – сад, тело, рукоделие, сон? Какая часть тела до сих пор молчит, и что было бы, если бы вы дали ей голос?"
+  },
+  {
+    title: "Исцеление раскола матери и дочери",
+    statements: [
+      "Отношения с матерью до сих пор вызывают у меня сильные, не до конца понятные чувства.",
+      "Я замечаю в себе материнские фразы или реакции, которые не выбирала, но повторяю.",
+      "Я ищу материнскую заботу в других отношениях – с подругами, наставницами, партнерами.",
+      "Мне кажется, что принять мать (или ее отсутствие) можно, только полностью простив ее.",
+      "Когда я делюсь с мамой хорошими новостями о себе, разговор быстро переключается на что-то другое."
+    ],
+    result_text: "Сейчас в фокусе – раскол между вами и матерью, реальной или внутренней. Это может быть самой долгой и самой личной темой пути: даже пройдя все остальные этапы, легко обнаружить, что именно эта рана исцеляется последней.",
+    deep: [
+      "Эта глава – самая личная в книге для самой Мердок: она признается, что раскол с матерью оставался неисцеленным дольше всего. Ключевая идея, которую она заимствует у Джеймса Хиллмана, – материнский комплекс существует в психике независимо от реальной матери: это не она сама, а то, как ваша психика восприняла отношения с ней. Именно с этим внутренним образом предстоит работать, даже если реальная мать недоступна, умерла или неспособна измениться.",
+      "Сказка о Месмеранде, отвергнутой четвертой дочери, которая в итоге принимает обезумевшую мать и заботится о ней, не требуя взамен любви, – метафора зрелого прощения: не подавления обиды, а отказа от того, чтобы обида продолжала определять нашу жизнь."
+    ],
+    question: "Что из тяжелого в отношении к себе принадлежит реальной матери, а что – образу, который сложился в вашей психике и живет отдельно от нее?"
+  },
+  {
+    title: "Обретение внутреннего Мужчины с сердцем",
+    statements: [
+      "Мой внутренний голос дисциплины больше похож на тирана, чем на опору.",
+      "Когда мне тяжело, я требую от себя собраться, а не спрашиваю себя «что со мной?».",
+      "Мне сложно совмещать силу и мягкость – кажется, надо выбрать что-то одно.",
+      "Я не помню, когда в последний раз чувствовала себя по-настоящему поддержанной изнутри.",
+      "Мне сложно позволить партнеру (или себе) оставаться таким, какой он есть, без необходимости меняться под мой образ."
+    ],
+    result_text: "Сейчас важна тема отношений с собственной силой и дисциплиной – не как с судьей, а как с возможным союзником. Похоже, вы уже готовы пересмотреть, каким тоном с вами разговаривает внутренний голос требовательности.",
+    deep: [
+      "Симметрично разрыву с отцом на втором этапе, здесь героиня исцеляет отношения с внутренним мужским началом – переводит его из позиции судьи в позицию партнера. Центральный образ – легенда о короле-рыбаке и Граале: рана короля не может исцелиться магией самого Грааля, для этого нужен простой вопрос сочувствия, обращенный к раненой части, – «что с тобой?»",
+      "Вторая опорная история, о сэре Гавейне и леди Рагнелл, показывает: заколдованная женщина превращается в себя настоящую не когда ее спасают, а когда муж признает ее право самой решать, какой ей быть. Это метафора священного брака – союза двух равных сил внутри одной психики, а не растворения одной в другой."
+    ],
+    question: "Задавали ли вы когда-нибудь раненой части себя вопрос «что с тобой» – вместо того чтобы требовать снова собраться и действовать?"
+  },
+  {
+    title: "За пределами двойственности",
+    statements: [
+      "Я делю ситуации на «кто прав, кто виноват», даже во внутреннем диалоге с собой.",
+      "Мне сложно удерживать сразу две правды одновременно, не выбирая одну сторону.",
+      "Я стремлюсь к балансу, но выбираю «или-или» вместо «и то и другое».",
+      "Мне сложно заметить ситуацию, где нет доминирующего и подчиненного, только равные.",
+      "В спорах я чаще ищу, кто прав, а не то, как совместить наши точки зрения."
+    ],
+    result_text: "Сейчас на первый план выходит самая широкая тема пути – способность видеть мир не через деление на правых и виноватых, а через баланс. Это не столько личный, сколько мировоззренческий сдвиг, и он часто приходит последним.",
+    deep: [
+      "Финальный этап не столько личный, сколько мировоззренческий. Мердок утверждает, что деление на мужское и женское, как и любая другая двойственность – свое и чужое, победитель и проигравший, – культурная конструкция, а не природный закон. Она опирается на данные археолога Марии Гимбутас о доиндоевропейских обществах, устроенных по модели круга, а не пирамиды, где не было выраженной иерархии по полу.",
+      "Героиня, завершившая путешествие, не побеждает мужское начало и не отвергает его, а возвращает миру целостность – соединяет то, что Мердок называет женской мудростью и мужским умением действовать. Путь заканчивается не индивидуальным просветлением, а способностью удерживать оба полюса одновременно, не выбирая один в ущерб другому."
+    ],
+    question: "Где в собственной жизни вы все еще держитесь за модель пирамиды, где кто-то один должен быть прав? Что меняется, если посмотреть на этот конфликт не как на войну, а как на нарушенный баланс?"
+  }
+];
+
+const SCALE_LABELS = ["0","1","2","3"];
+
+/* ================= APP STATE ================= */
+const CHART_LABELS = [
+  ["1 · Отделение", "от матери"],
+  ["2 · Мужское начало"],
+  ["3 · Драконы и мифы"],
+  ["4 · Иллюзия успеха"],
+  ["5 · Умение", "отказывать"],
+  ["6 · Нисхождение"],
+  ["7 · Возврат к телу"],
+  ["8 · Раскол с матерью"],
+  ["9 · Мужчина", "с сердцем"],
+  ["10 · Целостность"]
+];
+
+const App = (function(){
+  let current = 0; // 0 = intro handled separately; 1..10 = stage index; stored answers below
+  let stageIdx = 0; // 0-based index into STAGES while in quiz
+  const answers = STAGES.map(s => new Array(s.statements.length).fill(null));
+
+  function $(id){ return document.getElementById(id); }
+
+  function showView(id){
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    $(id).classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function renderProgress(){
+    const wrap = $('progress-path');
+    wrap.innerHTML = '';
+    STAGES.forEach((s,i) => {
+      const dot = document.createElement('span');
+      dot.className = 'moon' + (i < stageIdx ? ' done' : (i === stageIdx ? ' now' : ''));
+      wrap.appendChild(dot);
+    });
+    $('stage-caption').textContent = 'Этап ' + (stageIdx+1) + ' из ' + STAGES.length;
+  }
+
+  function renderStage(){
+    const s = STAGES[stageIdx];
+    $('stage-eyebrow').textContent = 'Этап ' + (stageIdx+1);
+    $('stage-title').textContent = s.title;
+    const qwrap = $('stage-questions');
+    qwrap.innerHTML = '';
+    s.statements.forEach((text, qi) => {
+      const fs = document.createElement('fieldset');
+      fs.className = 'q-block';
+      const legend = document.createElement('legend');
+      legend.textContent = text;
+      fs.appendChild(legend);
+
+      const scale = document.createElement('div');
+      scale.className = 'scale';
+
+      const left = document.createElement('div');
+      left.className = 'scale-hint';
+      left.textContent = 'совсем не про меня';
+      scale.appendChild(left);
+
+      const opts = document.createElement('div');
+      opts.className = 'opts';
+      SCALE_LABELS.forEach((val) => {
+        const label = document.createElement('label');
+        label.className = 'opt';
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'q_' + stageIdx + '_' + qi;
+        input.value = val;
+        if(answers[stageIdx][qi] === val) input.checked = true;
+        input.addEventListener('change', () => {
+          answers[stageIdx][qi] = val;
+          checkComplete();
+        });
+        const span = document.createElement('span');
+        span.textContent = val;
+        label.appendChild(input);
+        label.appendChild(span);
+        opts.appendChild(label);
+      });
+      scale.appendChild(opts);
+
+      const right = document.createElement('div');
+      right.className = 'scale-hint right';
+      right.textContent = 'точно про меня';
+      scale.appendChild(right);
+
+      fs.appendChild(scale);
+      qwrap.appendChild(fs);
+    });
+
+    $('btn-back').style.visibility = stageIdx === 0 ? 'hidden' : 'visible';
+    $('btn-next').textContent = stageIdx === STAGES.length - 1 ? 'Показать результат' : 'Далее';
+    checkComplete();
+    renderProgress();
+  }
+
+  function checkComplete(){
+    const complete = answers[stageIdx].every(a => a !== null);
+    $('btn-next').disabled = !complete;
+  }
+
+  function start(){
+    stageIdx = 0;
+    showView('view-quiz');
+    renderStage();
+  }
+
+  function next(){
+    if(stageIdx < STAGES.length - 1){
+      stageIdx++;
+      renderStage();
+    } else {
+      renderResults();
+      showView('view-results');
+    }
+  }
+
+  function back(){
+    if(stageIdx > 0){
+      stageIdx--;
+      renderStage();
+    } else {
+      showView('view-intro');
+    }
+  }
+
+  function restart(){
+    answers.forEach(a => a.fill(null));
+    stageIdx = 0;
+    showView('view-intro');
+  }
+
+  function scores(){
+    return answers.map(a => a.reduce((sum,v) => sum + (v ? parseInt(v,10) : 0), 0));
+  }
+
+  function renderResults(){
+    const sc = scores();
+    const maxScore = 15;
+
+    /* --- radar chart --- */
+    const cx = 195, cy = 175, maxR = 96;
+    const n = STAGES.length;
+    let svg = '';
+    // grid rings
+    [0.25,0.5,0.75,1].forEach(f => {
+      let pts = [];
+      for(let i=0;i<n;i++){
+        const a = (-90 + i*(360/n)) * Math.PI/180;
+        pts.push((cx + Math.cos(a)*maxR*f) + ',' + (cy + Math.sin(a)*maxR*f));
+      }
+      svg += '<polygon class="radar-grid" points="'+pts.join(' ')+'"/>';
+    });
+    // axes + labels
+    for(let i=0;i<n;i++){
+      const a = (-90 + i*(360/n)) * Math.PI/180;
+      const x2 = cx + Math.cos(a)*maxR, y2 = cy + Math.sin(a)*maxR;
+      svg += '<line class="radar-axis" x1="'+cx+'" y1="'+cy+'" x2="'+x2+'" y2="'+y2+'"/>';
+
+      const cosA = Math.cos(a), sinA = Math.sin(a);
+      const lx = cx + cosA*(maxR+14), ly = cy + sinA*(maxR+14);
+      let anchor = 'middle';
+      if(Math.abs(cosA) > 0.35){ anchor = cosA > 0 ? 'start' : 'end'; }
+      const lines = CHART_LABELS[i];
+      const lineH = 11.5;
+      const startDy = -(lines.length-1) * lineH/2 + 4;
+      let tspans = lines.map((line,li) =>
+        '<tspan x="'+lx+'" dy="'+(li===0 ? startDy : lineH)+'">'+line+'</tspan>'
+      ).join('');
+      svg += '<text class="radar-num" x="'+lx+'" y="'+ly+'" text-anchor="'+anchor+'">'+tspans+'</text>';
+    }
+    // data polygon
+    let dpts = [];
+    let dots = '';
+    for(let i=0;i<n;i++){
+      const a = (-90 + i*(360/n)) * Math.PI/180;
+      const r = (sc[i]/maxScore)*maxR;
+      const x = cx + Math.cos(a)*r, y = cy + Math.sin(a)*r;
+      dpts.push(x+','+y);
+      dots += '<circle class="radar-dot" cx="'+x+'" cy="'+y+'" r="3"/>';
+    }
+    svg += '<polygon class="radar-poly" points="'+dpts.join(' ')+'"/>' + dots;
+    $('radar').setAttribute('viewBox','0 0 390 350');
+    $('radar').innerHTML = svg;
+
+    /* --- top results --- */
+    const order = sc.map((v,i)=>({v,i})).sort((a,b)=> b.v - a.v);
+    const topScore = order[0].v;
+    const topWrap = $('top-results');
+    topWrap.innerHTML = '';
+    if(topScore === 0){
+      const p = document.createElement('p');
+      p.className = 'fallback-note';
+      p.textContent = 'Судя по ответам, все десять этапов сейчас звучат примерно ровно, и это тоже нормальное состояние. Возможно, сейчас время затишья между этапами, а может быть, стоит просто пролистать все десять ниже и посмотреть, что откликнется само.';
+      topWrap.appendChild(p);
+    } else {
+      order.slice(0,3).forEach(({v,i}) => {
+        const s = STAGES[i];
+        const card = document.createElement('div');
+        card.className = 'top-card';
+        let html = '<div class="num">Этап '+(i+1)+' · '+v+' из 15</div><h3>'+s.title+'</h3>';
+        html += '<p>'+s.result_text+'</p>';
+        html += '<p class="dim" style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.06em; font-style:italic; margin-bottom:6px;">Из чего состоит этот этап</p>';
+        s.deep.forEach(p => { html += '<p>'+p+'</p>'; });
+        html += '<p class="dim" style="font-size:0.82rem; text-transform:uppercase; letter-spacing:0.06em; font-style:italic; margin-bottom:2px;">Вопрос для самоисследования</p>';
+        html += '<p class="q-focus">'+s.question+'</p>';
+        card.innerHTML = html;
+        topWrap.appendChild(card);
+      });
+    }
+
+    /* --- bars --- */
+    const barsWrap = $('bars');
+    barsWrap.innerHTML = '';
+    STAGES.forEach((s,i) => {
+      const row = document.createElement('div');
+      row.className = 'bar-row';
+      row.innerHTML = '<div class="bar-name">'+(i+1)+'. '+s.title+'</div>'+
+        '<div class="bar-track"><div class="bar-fill" style="width:'+(sc[i]/maxScore*100)+'%"></div></div>'+
+        '<div class="bar-score">'+sc[i]+'/15</div>';
+      barsWrap.appendChild(row);
+    });
+
+    /* --- accordion --- */
+    const acc = $('accordion');
+    acc.innerHTML = '';
+    STAGES.forEach((s,i) => {
+      const det = document.createElement('details');
+      const sum = document.createElement('summary');
+      sum.innerHTML = '<span>'+(i+1)+'. '+s.title+'</span><span class="chev">›</span>';
+      det.appendChild(sum);
+      const body = document.createElement('div');
+      body.className = 'detail-body';
+      s.deep.forEach(p => {
+        const pel = document.createElement('p');
+        pel.textContent = p;
+        body.appendChild(pel);
+      });
+      const q = document.createElement('p');
+      q.className = 'q-focus';
+      q.textContent = s.question;
+      body.appendChild(q);
+      det.appendChild(body);
+      acc.appendChild(det);
+    });
+  }
+
+  function downloadResults(){
+    const date = new Date().toLocaleDateString('ru-RU', {year:'numeric', month:'long', day:'numeric'});
+
+    const fontsLink = document.querySelector('link[href*="fonts.googleapis"]');
+    const fontsHref = fontsLink ? fontsLink.getAttribute('href') : '';
+    const styleContent = document.querySelector('style').innerHTML;
+    const radarSVG = $('radar').outerHTML;
+    const topHTML = $('top-results').innerHTML;
+    const barsHTML = $('bars').innerHTML;
+    const accordionHTML = $('accordion').innerHTML;
+
+    const html = '<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+      '<title>Путешествие героини — ваши результаты</title>' +
+      '<link rel="preconnect" href="https://fonts.googleapis.com">' +
+      '<link href="' + fontsHref + '" rel="stylesheet">' +
+      '<style>' + styleContent + '\n' +
+      '.dl-badge{display:inline-block; font-style:italic; color:var(--gold-soft); font-size:0.85rem; margin-bottom:22px;}' +
+      '.btnrow, .closing .tg, button{ display:none !important; }' +
+      '</style></head><body><div class="app"><div class="frame">' +
+      '<span class="eyebrow">Результат</span>' +
+      '<h1 style="font-size:2rem;">Ваша карта пути</h1>' +
+      '<div class="dl-badge">Сохранено ' + date + '</div>' +
+      '<p class="dim">Круг ниже показывает, какие этапы могут быть для вас сейчас наиболее актуальными. Чем дальше точка от центра, тем важнее этот этап.</p>' +
+      '<div class="radar-wrap">' + radarSVG + '</div>' +
+      '<hr class="rule"><h2>Актуальные этапы путешествия на базе теста</h2>' + topHTML +
+      '<hr class="rule"><h2>Все десять этапов</h2><div class="bars">' + barsHTML + '</div>' +
+      accordionHTML +
+      '<div class="closing"><p class="dim">Путешествие героини по книге Морин Мердок · группа «Что мы делаем в тенях» · t.me/IamIva2020</p></div>' +
+      '<div class="signature">Юлия Иванчикова · t.me/IamIva2020</div>' +
+      '<footer class="site-footer"><div class="links">' +
+      '<a href="https://t.me/cottage_cheese_puree" target="_blank" rel="noopener">Telegram</a>' +
+      '<a href="https://www.instagram.com/jul_ivanchikova" target="_blank" rel="noopener">Instagram</a>' +
+      '</div></footer>' +
+      '</div></div></body></html>';
+
+    // application/octet-stream forces a save prompt on most browsers, including
+    // iOS Safari, which otherwise tries to render text/html blobs inline instead
+    // of downloading them. The file still opens correctly as HTML afterwards.
+    const blob = new Blob([html], {type: 'application/octet-stream'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'puteshestvie-geroini-rezultaty.html';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    try {
+      a.click();
+    } catch(e){
+      window.open(url, '_blank');
+    }
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  return { start, next, back, restart, downloadResults };
+})();
+</script>
+</body>
+</html>
